@@ -9,22 +9,26 @@ class Listogram(list):
     """Listogram is a histogram implemented as a subclass of the list type."""
 
     def __init__(self, word_list=None):
-        """Initialize this histogram as a new list and count given words."""
-        super(Listogram, self).__init__()  # Initialize this as a new list
-        # Add properties to track useful word counts for this histogram
-        self.types = 0  # Count of distinct word types in this histogram
-        self.tokens = 0  # Total count of all word tokens in this histogram
-        # Count words in given list, if any
-        if word_list is not None:
-            for word in word_list:
-                self.add_count(word)
+      """Initialize this histogram as a new list and count given words."""
+      super(Listogram, self).__init__()  # Initialize this as a new list
+      # Add properties to track useful word counts for this histogram
+      self.types = 0  # Count of distinct word types in this histogram
+      self.tokens = 0  # Total count of all word tokens in this histogram
+      # Count words in given list, if any
+      if word_list is not None:
+          for word in word_list:
+              self.add_count(word)
 
     def add_count(self, word, count=1):
       """Increase frequency count of given word by given count amount."""
-      if word in self:
-       self[word[1]] += count
-      else:
-        self.append((word,count))
+      exists = False
+      for item in self:
+        if item[0] == word.lower():
+          item[1] += count
+          exists = True
+      if not exists:
+        self.append([word.lower(),count])
+        self.types += 1
       self.tokens += count
 
     def frequency(self, word):
@@ -32,11 +36,12 @@ class Listogram(list):
       for w in self:
           if word.lower() == w[0]:
               return w[1]
+      return 0
 
     def __contains__(self, word):
       """Return boolean indicating if given word is in this histogram."""
-      for pair in self:
-        if word in pair:
+      for item in self:
+        if item[0] == word.lower():
           return True
       return False
 
@@ -51,12 +56,12 @@ class Listogram(list):
     def sample(self):
         """Return a word from this histogram, randomly sampled by weighting
         each word's probability of being chosen by its observed frequency."""
-        word = 0
-        choice = random.uniform(0, self.tokens)
-        for item, count in self.items():
-          word += count
-          if word >= choice:
-            return item
+        target = 0
+        dart = random.uniform(0, self.tokens)
+        for key, value in self:
+          target += value
+          if target >= dart:
+            return key
 
 def print_histogram(word_list):
     print()
@@ -96,7 +101,7 @@ def print_histogram_samples(histogram):
         # Calculate word's observed frequency
         observed_freq = count / histogram.tokens
         # Calculate word's sampled frequency
-        samples = samples_hist.frequency(word)
+        samples = samples_hist.frequency(word.lower())
         sampled_freq = samples / samples_hist.tokens
         # Calculate error between word's sampled and observed frequency
         error = (sampled_freq - observed_freq) / observed_freq
