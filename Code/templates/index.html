@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horror Movie Synopsis</title>
+</head>
+
+<body>
+  <h1>SCARIEST MOVIE OF ALL TIME</h1>
+  <div>
+    <p>{{ tweet }}</p>
+  </div>
+  <h2>IN THEATRES SOON</h2>
+</body>
+
+<style>
+
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(17, 39, 56);
+    color:bisque;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
+    height: 80vh;
+  }
+
+  div {
+    font-size:xx-large;
+    color: rgb(143, 173, 212);
+    background-color: rgba(0, 0, 0, 0.753);
+    width: 100%;
+    padding: 20px;
+  }
+
+  h1 {
+    font-family: 'movie';
+  }
+
+  p {
+    margin-right: 7%;
+    margin-left: 7%;
+
+  }
+
+  h2 {
+    font-family: 'scary';
+
+  }
+
+
+
+  @font-face {
+      font-family: "scary";
+      src: url("/static/fonts/scary.woff") format("woff");
+    }
+
+    @font-face {
+      font-family: "movie";
+      src: url("/static/fonts/movie.woff") format("woff");
+    }
+
+</style>
+</html>

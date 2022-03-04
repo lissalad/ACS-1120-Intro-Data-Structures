@@ -1,20 +1,27 @@
 """Main script, uses other modules to generate sentences."""
-from flask import Flask
+from flask import Flask, render_template
 from dictogram import Dictogram
+from markov import Markov
+from tokens import tokenize
 
 app = Flask(__name__)
+
+words = tokenize('./tmdb_horror.txt')
+histogram = Dictogram(words)
+
+markov = Markov(histogram, words)
+
 
 
 @app.before_first_request
 def before_first_request():
     """Runs only once at Flask startup"""
-    # TODO: Initialize your histogram, hash table, or markov chain here.
+  
 
 
 @app.route("/")
 def home():
-    """Route that returns a web page containing the generated text."""
-    return "<p>TODO: Return a word here!</p>"
+    return render_template("index.html", tweet=markov.sentence(histogram, 20))
 
 
 if __name__ == "__main__":
