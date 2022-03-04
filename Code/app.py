@@ -1,6 +1,6 @@
 """Main script, uses other modules to generate sentences."""
 from flask import Flask
-
+from dictogram import Dictogram
 
 app = Flask(__name__)
 

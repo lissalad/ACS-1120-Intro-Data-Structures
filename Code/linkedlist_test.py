@@ -92,6 +92,8 @@ class LinkedListTest(unittest.TestCase):
         ll.prepend('B')
         assert ll.length() == 2
         ll.append('D')
+        # print(ll.length())
+
         assert ll.length() == 3
         ll.prepend('A')
         assert ll.length() == 4

@@ -28,6 +28,8 @@ class HashTableTest(unittest.TestCase):
         ht = HashTable()
         assert ht.values() == []
         ht.set('I', 1)
+        print("VALUES:")
+        print(ht.values())
         assert ht.values() == [1]
         ht.set('V', 5)
         self.assertCountEqual(ht.values(), [1, 5])  # Ignore item order
@@ -99,7 +101,7 @@ class HashTableTest(unittest.TestCase):
         ht.delete('X')
         assert ht.length() == 1
         with self.assertRaises(KeyError):
-            ht.delete('X')  # Key no longer exists
+            ht.delete('X')  # Key no longer existsπ
         with self.assertRaises(KeyError):
             ht.delete('A')  # Key does not exist
 
