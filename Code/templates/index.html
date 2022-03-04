@@ -1,61 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Horror Movie Synopsis</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horror Movie Synopsis</title>
+  </head>
 
-<body>
-  <h1>SCARIEST MOVIE OF ALL TIME</h1>
-  <div>
-    <p>{{ tweet }}</p>
-  </div>
-  <h2>IN THEATRES SOON</h2>
-</body>
+  <body>
+    <h1>SCARIEST MOVIE OF ALL TIME</h1>
+    <div>
+      <p>{{ tweet }}</p>
+    </div>
+    <h2>IN THEATRES SOON</h2>
+    <a href="/">refresh</a>
+  </body>
 
-<style>
+  <script>
+    console.log('--------------')
+    console.log()
+    console.log('7 days')
+    console.log()
+    console.log('--------------')
+  </script>
 
-  body {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(17, 39, 56);
-    color:bisque;
-    overflow: hidden;
-    margin: 0;
-    text-align: center;
-    height: 80vh;
-  }
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      /* justify-content: center; */
+      align-items: center;
+      background-color: rgb(17, 39, 56);
+      color: rgb(235, 227, 217);
+      overflow-x: hidden;
+      text-align: center;
+      height: 100vh;
+    }
 
-  div {
-    font-size:xx-large;
-    color: rgb(143, 173, 212);
-    background-color: rgba(0, 0, 0, 0.753);
-    width: 100%;
-    padding: 20px;
-  }
+    div {
+      font-size: xx-large;
+      color: rgb(206, 213, 223);
+      background-color: rgba(0, 0, 0, 0.753);
+      width:fit; 
+      padding: 3px 5px;
+      border-radius: 10px;
+    }
 
-  h1 {
-    font-family: 'movie';
-  }
+    h1 {
+      font-family: "movie";
+      font-size: 2em;
+      /* box-shadow: .4rem 1rem .2rem .2rem black; */
+      margin-bottom:40px;
+    }
 
-  p {
-    margin-right: 7%;
-    margin-left: 7%;
+    p {
+      margin-right: 7%;
+      margin-left: 7%;
+    }
 
-  }
+    h2 {
+      font-family: "scary";
+    }
 
-  h2 {
-    font-family: 'scary';
+    a {
+      padding: 13px 19px;
+      background-color: rgb(184, 63, 47);
+      /* position: absolute; */
+      /* bottom:0; */
+      /* margin-bottom: 2vh; */
+      margin-top:6%;
+      border-radius: 5px;
+      color: white;
+      text-decoration: none;
+      width:fit-content;
+    }
 
-  }
+    a:hover {
+      box-shadow: .2rem .7rem 0rem .2rem black;
+      background-color: rgb(104, 35, 25);
+      color: rgb(236, 255, 149);
+    }
 
+    h1:hover {
+      font-size: 140px;
+    }
 
-
-  @font-face {
+    @font-face {
       font-family: "scary";
       src: url("/static/fonts/scary.woff") format("woff");
     }
@@ -64,6 +94,6 @@
       font-family: "movie";
       src: url("/static/fonts/movie.woff") format("woff");
     }
-
-</style>
+    
+  </style>
 </html>
