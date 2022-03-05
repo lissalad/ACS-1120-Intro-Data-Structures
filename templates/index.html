@@ -12,16 +12,20 @@
     <div>
       <p>{{ tweet }}</p>
     </div>
+      <form action="/tweet" method="post">
+        <input type="hidden" name="sentence" value="{{ tweet }}" />
+        <button type="submit">Tweet this</button>
+      </form>
     <h2>IN THEATRES SOON</h2>
     <a href="/">refresh</a>
   </body>
 
   <script>
-    console.log('--------------')
-    console.log()
-    console.log('7 days')
-    console.log()
-    console.log('--------------')
+    console.log("--------------");
+    console.log();
+    console.log("7 days");
+    console.log();
+    console.log("--------------");
   </script>
 
   <style>
@@ -41,7 +45,7 @@
       font-size: xx-large;
       color: rgb(206, 213, 223);
       background-color: rgba(0, 0, 0, 0.753);
-      width:fit; 
+      width: fit;
       padding: 3px 5px;
       border-radius: 10px;
     }
@@ -50,7 +54,7 @@
       font-family: "movie";
       font-size: 2em;
       /* box-shadow: .4rem 1rem .2rem .2rem black; */
-      margin-bottom:40px;
+      margin-bottom: 40px;
     }
 
     p {
@@ -68,15 +72,15 @@
       /* position: absolute; */
       /* bottom:0; */
       /* margin-bottom: 2vh; */
-      margin-top:6%;
+      margin-top: 6%;
       border-radius: 5px;
       color: white;
       text-decoration: none;
-      width:fit-content;
+      width: fit-content;
     }
 
     a:hover {
-      box-shadow: .2rem .7rem 0rem .2rem black;
+      box-shadow: 0.2rem 0.7rem 0rem 0.2rem black;
       background-color: rgb(104, 35, 25);
       color: rgb(236, 255, 149);
     }
@@ -94,6 +98,5 @@
       font-family: "movie";
       src: url("/static/fonts/movie.woff") format("woff");
     }
-    
   </style>
 </html>
