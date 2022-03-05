@@ -45,7 +45,7 @@ def corpus_length(source):
 
 # -------------- RUNS ------------------------ #
 if __name__ == '__main__':
-  print(corpus_length('./tmdb_horror.txt'))
+  print(corpus_length('./incels.txt'))
 
 
     
